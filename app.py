@@ -22,7 +22,9 @@ if uploaded_file is not None:
         else:
             try:
                 genai.configure(api_key=api_key)
-                model = genai.GenerativeModel('gemini-2.5-flash')
+                
+                # Using gemini-1.5-flash for fast and reliable vision processing
+                model = genai.GenerativeModel('gemini-1.5-flash')
                 
                 prompt = """
                 You are an expert candlestick and price action trader. Analyze this trading chart image carefully:
@@ -30,9 +32,9 @@ if uploaded_file is not None:
                 2. Identify key Support/Resistance levels or recent candlestick patterns near the latest candle.
                 3. Predict the probability of the NEXT candle (Up/Call or Down/Put).
                 
-                Please format your response strictly as follows:
+                Please format your response strictly as follows in simple terms:
                 - **Market Trend:** [Uptrend/Downtrend/Sideways]
-                - **Key Pattern Detected:** [Name of pattern, e.g., Bullish Engulfing, Hammer]
+                - **Key Pattern Detected:** [Name of pattern, e.g., Bullish Engulfing, Hammer, Doji]
                 - **Next Candle Signal:** [CALL / PUT / NEUTRAL]
                 - **Probability:** [e.g., 70% Call]
                 - **Brief Explanation:** [2-3 sentences reasoning in simple terms]
