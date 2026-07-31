@@ -23,8 +23,8 @@ if uploaded_file is not None:
             try:
                 genai.configure(api_key=api_key)
                 
-                # Using gemini-1.5-flash for fast and reliable vision processing
-                model = genai.GenerativeModel('gemini-1.5-flash')
+                # Updated active model name
+                model = genai.GenerativeModel('gemini-2.0-flash')
                 
                 prompt = """
                 You are an expert candlestick and price action trader. Analyze this trading chart image carefully:
